@@ -1,0 +1,3 @@
+[submodule "App_Crawler/droidbot"]
+	path = App_Crawler/droidbot
+	url = https://github.com/honeynet/droidbot.git

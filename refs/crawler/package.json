@@ -1,0 +1,28 @@
+{
+  "type": "module",
+  "scripts": {
+    "compile": "tsc",
+    "crawler": "node build/crawler.js"
+  },
+  "dependencies": {
+    "@xenova/transformers": "^2.12.1",
+    "mnemonist": "^0.39.6",
+    "parse-domain": "^8.0.1",
+    "playwright": "^1.41.2",
+    "playwright-extra": "^4.3.6",
+    "puppeteer-extra-plugin-stealth": "^2.11.2",
+    "rimraf": "^5.0.5",
+    "xdg-basedir": "^5.1.0",
+    "yargs": "^17.7.2"
+  },
+  "devDependencies": {
+    "@types/node": "^20.10.0",
+    "@types/yargs": "^17.0.33",
+    "@typescript-eslint/eslint-plugin": "^6.12.0",
+    "@typescript-eslint/parser": "^6.12.0",
+    "eslint": "^8.54.0",
+    "eslint-config-airbnb-base": "^15.0.0",
+    "eslint-config-airbnb-typescript": "^17.1.0",
+    "typescript": "^5.3.2"
+  }
+}
