@@ -1,12 +1,21 @@
 from androguard.misc import AnalyzeAPK
+from androguard.core.axml import AXMLPrinter
 import xml.etree.ElementTree as ET
 from collections import defaultdict
 import csv
 import os
+import re
 
 
-apk_path = r"C:\Users\Teigen\Downloads\com.google.android.youtube_21.10.494-1561059346_minAPI28(arm64-v8a,armeabi-v7a,x86,x86_64)(nodpi)_apkmirror.com.apk"
+apk_path = r"C:\Users\Teigen\Downloads\duolingo\base.apk"
 apk,dex, analysis = AnalyzeAPK(apk_path)
+
+# string resolution helper
+string_resources = {}
+
+# TODO: load string resources from APK to resolve references in layout XML
+#def load_string_resources():
+    #find android id reference in public.xml to give us id (email_hint) then find that in strings.xml to get actual text
 
 
 
@@ -78,16 +87,17 @@ for file in all_files:
         continue
 
     total_xml += 1
-    is_layout = file.startswith("res/layout")
+    is_layout = file.startswith("res/")
     if not is_layout: 
         continue
 
     layout_xml += 1
+    raw = apk.get_file(file)
     try:
-        xml_obj = apk.get_xml_obj(file)
-    except Exception as e:
+        xml_text = AXMLPrinter(raw).get_xml()
+        xml_obj = ET.fromstring(xml_text)
+    except Exception:
         parse_errors += 1
-        print(f"  Parse error on {file}: {e}")
         continue
 
     if xml_obj is None:
@@ -122,7 +132,7 @@ with open(output, "w", newline="", encoding="utf-8") as f:
 
 print(f"Saved {len(rows)} rows to {output}")
 
-# attempt at making forms into objects
+# ---attempt at making forms into objects---
 
 INPUT_TAGS = {"EditText", "TextInputEditText", "AutoCompleteTextView", "Spinner"}
 
