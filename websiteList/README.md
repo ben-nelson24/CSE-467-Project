@@ -18,6 +18,7 @@ Navigate to the same directory as the file then input this command:
 $ cd website-list/
 $ zcat latest.csv.gz | awk -F, '$5 > 10000000 && $8 == 0 {print; if (++count == 20000) exit}' > filtered.csv
 ```
+What that command does is it filters out files that are larger than 10,000,000 bytes, doesn't have nay antivirus flags, and filters to a max item count of 20,000
 
 ### Step 3
 
