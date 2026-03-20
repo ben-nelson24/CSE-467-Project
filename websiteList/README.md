@@ -5,9 +5,18 @@ In this section we will show how we get and filter the data set for use
 We Use fetchList.py and save it to a SQLite known as (`domain.db`)
 
 ### Step 1
-Use the link below and scroll to (`latest.csv.gz`)
+Get the latest list of apps from AndroZoo (`latest.csv.gz`) and place it into this moduals directory
+```cd websiteList```
 
-https://androzoo.uni.lu/api_doc
+(can be downloaded from https://androzoo.uni.lu/api_doc)
+or run:
+```
+Invoke-WebRequest -Uri "https://androzoo.uni.lu/static/lists/latest.csv.gz" -OutFile "latest.csv.gz"
+```
+for Windows or 
+```
+curl -L -O https://androzoo.uni.lu/static/lists/latest.csv.gz
+```
 
 Place the csv into a folder (Download may take a while)
 
@@ -22,7 +31,7 @@ What that command does is it filters out files that are larger than 15,000,000 b
 
 ### Step 3
 
-Copy the newly created (`filtered.csv`) to the same directory as fetchList.py
+With the newly created (`filtered.csv`) in the same directory as fetchList.py
 
 Run the Command:
 ```console
