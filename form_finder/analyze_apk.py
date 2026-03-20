@@ -7,7 +7,7 @@ import os
 import re
 
 
-apk_path = r"C:\Users\Teigen\Downloads\duolingo\base.apk"
+apk_path = "./base.apk"
 apk,dex, analysis = AnalyzeAPK(apk_path)
 
 # string resolution helper
@@ -47,7 +47,7 @@ ATTRS = [
 
 ANDROID_NS = "{http://schemas.android.com/apk/res/android}"
 
-
+# Get Attributes
 def get_attr(elem, name):
     key = name.split(":")[-1]
     return (
@@ -56,6 +56,7 @@ def get_attr(elem, name):
         or elem.attrib.get(key)
     )
 
+# Check if the tag is listed form tags
 def is_form_tag(tag: str) -> bool:
     short = tag.split("}")[-1]
     short = short.split(".")[-1]
@@ -83,11 +84,13 @@ for f in xml_files[:30]:
     print(f)
 
 for file in all_files:
+    # check all xml files
     if not file.endswith(".xml"):
         continue
 
     total_xml += 1
     is_layout = file.startswith("res/")
+    # only check layout files
     if not is_layout: 
         continue
 
@@ -103,7 +106,7 @@ for file in all_files:
     if xml_obj is None:
         print(f"  xml_obj is None for {file}")
         continue
-
+    # check elements for tags
     for elem in xml_obj.iter():
         tag = elem.tag
         if tag is None:
