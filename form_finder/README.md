@@ -3,7 +3,9 @@
 This script decompiles an apk file to extract key XML elements related to forms
 
 ## Step 1: Install androguard
-```pip install androguard```
+```
+pip install androguard
+```
 
 ## Step 2: Have an apk ready to analyze
 
