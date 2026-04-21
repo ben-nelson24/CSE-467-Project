@@ -8,7 +8,7 @@ import re
 import os
 
 
-apk_path = Path("../testapk/Google_Play.apk")
+apk_path = Path("../testapk/GooglePlay.apk")
 decoded_dir = Path("./decoded_apk")
 # apk,dex, analysis = AnalyzeAPK(apk_path)
 output = "form_elements.csv"
@@ -190,7 +190,7 @@ def main():
 
     for xml_file in layout_files:
         try:
-            xml_text = xml_file.read_text(encoding="utf-8", errors="ignorance")
+            xml_text = xml_file.read_text(encoding="utf-8", errors="ignore")
             xml_obj = ET.fromstring(xml_text)
         except Exception as e:
             print(f"Skipping {xml_file}: {type(e).__name__}: {e}")
@@ -217,18 +217,18 @@ def main():
             if rec["tag"] not in FORM_TAGS:
                 continue
 
-        # Attach label if label references this element
-        element_id = rec.get("id_name")
-        if element_id:
-            rec["label_text"] = label_text_by_id.get(element_id)
-        else:
-            rec["label_text"] = None
-        
-        form_elements.append(rec)
-        rows.append({
-            "file": xml_file.as_posix(),
-            **rec,
-        })
+            # Attach label if label references this element
+            element_id = rec.get("id_name")
+            if element_id:
+                rec["label_text"] = label_text_by_id.get(element_id)
+            else:
+                rec["label_text"] = None
+            
+            form_elements.append(rec)
+            rows.append({
+                "file": xml_file.as_posix(),
+                **rec,
+            })
 
         #Form if it has at least one field
         if any(e["tag"] in INPUT_TAGS for e in form_elements):
