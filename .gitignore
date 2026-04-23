@@ -1,2 +1,3 @@
 .venv
-testpack/youtube.apk
+testpack/*
+form_finder/decoded_apk
