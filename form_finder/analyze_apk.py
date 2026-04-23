@@ -121,10 +121,10 @@ def extract_id_name(value: str | None) -> str | None:
     if not value:
         return None
     
-    m = re.fullmatch(r"@(?:\+)id/([A-Za-z0-9_.-]+)", value.strip())
+    m = re.fullmatch(r"@\+?id/([A-Za-z0-9_.-]+)", value.strip())
 
     if m:
-        return m.groupt(1)
+        return m.group(1)
     return None
 
 def resolve_value(value: str | None, string_map: dict[str, str]) -> str | None:
@@ -190,7 +190,7 @@ def main():
 
     for xml_file in layout_files:
         try:
-            xml_text = xml_file.read_text(encoding="utf-8", errors="ignorance")
+            xml_text = xml_file.read_text(encoding="utf-8", errors="ignore")
             xml_obj = ET.fromstring(xml_text)
         except Exception as e:
             print(f"Skipping {xml_file}: {type(e).__name__}: {e}")
@@ -216,19 +216,18 @@ def main():
         for rec in elements:
             if rec["tag"] not in FORM_TAGS:
                 continue
-
-        # Attach label if label references this element
-        element_id = rec.get("id_name")
-        if element_id:
-            rec["label_text"] = label_text_by_id.get(element_id)
-        else:
-            rec["label_text"] = None
         
-        form_elements.append(rec)
-        rows.append({
-            "file": xml_file.as_posix(),
-            **rec,
-        })
+            element_id = rec.get("id_name")    
+            if element_id:                     
+                rec["label_text"] = label_text_by_id.get(element_id)
+            else:
+                rec["label_text"] = None
+        
+            form_elements.append(rec)          
+            rows.append({                      
+                "file": xml_file.as_posix(),
+                **rec,
+            }) 
 
         #Form if it has at least one field
         if any(e["tag"] in INPUT_TAGS for e in form_elements):
@@ -241,7 +240,7 @@ def main():
     print(f"Form elements found: {len(rows)}")
 
     # Save csv file
-    fieldnames = ["file", "tag"] + ATTRS + ["id_name", "lable_text", "hint", "text", "autofill_hints", "input_type", "label_for", "content_description"]
+    fieldnames = ["file", "tag"] + ATTRS + ["id_name", "label_text", "hint", "text", "autofill_hints", "input_type", "label_for", "content_description"]
     with open (output, "w", newline="", encoding="utf-8") as f:
         writer = csv.DictWriter(f, fieldnames=fieldnames, extrasaction="ignore")
         writer.writeheader()
