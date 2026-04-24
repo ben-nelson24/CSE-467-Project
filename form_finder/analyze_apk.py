@@ -191,7 +191,6 @@ def main():
     for xml_file in layout_files:
         try:
             xml_text = xml_file.read_text(encoding="utf-8", errors="ignore")
-            xml_text = xml_file.read_text(encoding="utf-8", errors="ignore")
             xml_obj = ET.fromstring(xml_text)
         except Exception as e:
             print(f"Skipping {xml_file}: {type(e).__name__}: {e}")
