@@ -6,6 +6,8 @@ import subprocess
 import csv
 import re
 import os
+import shutil
+
 
 
 apk_path = Path("../testapk/GooglePlay.apk")
@@ -269,7 +271,10 @@ def main():
                     f"inputType={el.get('input_type')!r}, "
                     f"label={el.get('label_text')!r}"
                 )
-
+                
+    shutil.rmtree(decoded_dir)
+    print("Cleaned up decoded APK folder")
+    
 if __name__ == "__main__":
     main()
 
