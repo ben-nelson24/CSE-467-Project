@@ -6,7 +6,7 @@ import json
 import os
 from pathlib import Path
 
-API_KEY = "ae7e3d080b3575118d74fb6c9dbe9e69db00516977d3ace05a34128a8f6b929e"
+API_KEY = "apikey"
 
 APKTOOL_JAR = "/Users/meshari/Downloads/apktool.jar"
 
