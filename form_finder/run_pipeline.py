@@ -22,7 +22,7 @@ OUTPUT_DIR = Path("./results")
 DECODED_DIR = Path("./decoded_apk")
 
 # keeping this small for now to test, can bump it up later
-MAX_APPS = 1
+MAX_APPS = 10
 
 OUTPUT_DIR.mkdir(exist_ok=True)
 
