@@ -25,7 +25,7 @@ Place the csv into a folder (Download may take a while)
 Navigate to the same directory as the file then input this command:
 ```console
 $ cd website-list/
-zcat latest.csv.gz | awk -F, '$5 > 15000000 && $8 == 0 && $11 ~ /play\.google\.com/ {print; if (++count == 20000) exit}' > filtered.csv
+zcat latest.csv.gz | awk -F, '$5 > 15000000 && $8 == 0 && $11 ~ /play\.google\.com/ {print; if (++count == 1000) exit}' > filtered.csv
 ```
 What that command does is it filters out files that are larger than 15,000,000 bytes, doesn't have any antivirus flags, and filters to a max item count of 20,000
 
