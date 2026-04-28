@@ -9,7 +9,7 @@ More detailed instructions for how to run each module can be found in the README
 
 - [Step 1: App List and Categorization](./websiteList/)
 - [Step 2: App Form data Extraction](./form_finder)
-- Step 3: Dataset Preporocessing
+- [Step 3: Dataset Preporocessing](./form_finder/README2.md/)
 - Step 4: PI Type Classification
 - Step 5: Form Type Classification
 - Step 6: Privacy Policy Processing
