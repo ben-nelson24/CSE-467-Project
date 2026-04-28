@@ -25,6 +25,8 @@ Change the code to fit your needs.
 
 First Change the API_KEY to your Androzoo Api Key
 
+### NOTE: If your API key is in your environment variables, you may skip this step entirely. If you don't know, then the default is to follow this step.
+
 Remove the code snipped:
 ```console
 os.environ.get("ANDROZOO API KEY HERE")
