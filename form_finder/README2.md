@@ -61,7 +61,7 @@ python run_pipeline.py
 
 The scraper will continously run. (THIS WILL TAKE A VERY LONG TIME ESPECIALLY IF MAX_APPS IS SET TO A HIGH NUMBER)
 
-Once all the data has been scraped and converted into JSON files, we need to convert them into a [singular database to use](./dbConverter/).
+Once all the data has been scraped and converted into JSON files, we need to convert them into a [singular database to use](./dbConverter/README.md).
 
 ### Error debugging:
 
