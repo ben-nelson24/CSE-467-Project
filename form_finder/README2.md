@@ -52,7 +52,10 @@ For the project we used 750.
 
 ### Step 6
 
-Run the program with python run_pipeline.py
+Run the program with:
+```console
+python run_pipeline.py
+```
 
 ### Error debugging:
 
