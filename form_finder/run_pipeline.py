@@ -9,9 +9,9 @@ from pathlib import Path
 from analyze_apk import load_string_resources, find_layout_xml_files, element_to_record, INPUT_TAGS, FORM_TAGS
 
 
-API_KEY = os.environ.get("ANDROZOO_API_KEY")
+API_KEY =""
 
-APKTOOL_JAR = "/Users/meshari/Downloads/apktool.jar"
+APKTOOL_JAR = "./apk_tool/apktool.jar"
 
 FILTERED_CSV = "./filtered.csv"
 

@@ -1,6 +1,5 @@
 from androguard.misc import AnalyzeAPK
 import xml.etree.ElementTree as ET
-from collections import defaultdict
 from pathlib import Path
 import subprocess
 import csv

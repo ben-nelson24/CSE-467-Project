@@ -1,8 +1,9 @@
-# CSE-467-Project Website List and Categorization
+# CSE-467-Project Dataset Preprocessing
 
 In this section we will show how we convert multiple jsons into a db file
 
 We Use jsonToDB.py and save it to a SQLite known as (`example.db`)
+Copy jaonToDB.py into your results directory from the previous step.
 
 By going into the same directory as both the python file and your jsons, you can run:
 ```console

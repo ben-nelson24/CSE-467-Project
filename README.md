@@ -7,10 +7,10 @@ Our approach follows the same six step pipeline as the original paper: building 
 
 More detailed instructions for how to run each module can be found in the README files within their corresponding folders. We have broken down the steps to mirror the data processing pipeline of the original project:
 
-- [Step 1: App List and Categorization](./websiteList/)
-- [Step 2: App Form data Extraction](./form_finder)
-- [Step 3: PI Type Classification](./form_finder/README2.md/)
-- Step 4: Form Type Classification
-- Step 5: Privacy Policy Processing
+- [Step 1: App List and Categorization (websiteList)](./websiteList/)
+- [Step 2: App Form data Extraction (form_finder)](./form_finder)
+- [Step 3: Dataset Preporocessing (dbConverter)](./dbConverter)
+- [Step 4: PI Type Classification(classifyData)](./classifyData)
+- [Step 5: Form Type Classification(classifyData)](./classifyData)
+- [Step 6: Privacy Policy Processing (privacyPolicyAnalysis)](./privacyPolicyAnalysis/)
 
-(Step 3-6) Will be developed post Intermediate Report

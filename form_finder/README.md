@@ -1,29 +1,66 @@
-# Form Finder Script
+# CSE-467-Project Website List and Categorization
 
-This script decompiles an apk file to extract key XML elements related to forms
+In this section we will show how to gather and scrape the data from Android Apps
 
-## Step 1: Install androguard
+We Use run_pipeline.py
 
+Be sure to also have an Androzoo API key readily available.
+
+Also be sure to have a prefiltered csv (filtered.csv) available.
+
+For the purposes of the submission, we should have all the required paths configured for testing
+
+### Step 1
+Get the latest version of Apktools
+
+(can be downloaded from (https://apktool.org/docs/install/))
+
+Make sure that the apktool.jar file is in the apk_tool folder in this directory (should already be taken care of in zip file)
+
+### Step 2
+
+Ensure the csv file (filtered.csv) is in the the form_finder folder. 
+
+### Step 3
+
+Ensure you have a valid Androzoo API key (should be provided for zip demo)
+
+
+### Step 4
+
+Change APKTOOL_JAR's directory in run_pipeline.py is set correctly
+
+### Step 5
+
+Change MAX_APPS to the desired amount of apps you want to test.
+
+For the project we used 750, but for demo we have it currently set to 10
+
+### Step 6
+
+Run the program with:
+```console
+python run_pipeline.py
 ```
+
+### What to do next
+
+The scraper will continously run. (THIS WILL TAKE A VERY LONG TIME ESPECIALLY IF MAX_APPS IS SET TO A HIGH NUMBER)
+
+Once all the data has been scraped and converted into JSON files, we need to convert them into a [singular database to use](/dbConverter/README.md).
+
+### Error debugging:
+
+Certain potential errors may occur. 
+
+If you run into issues such as androguard.misc import AnalyzeAPK, then ensure you install androguard with:
+
+```console
 pip install androguard
 ```
 
-## Step 2: Have an apk ready to analyze
+If you run into issues with requests package being missing, run:
 
-- In the full final analysis, the apk results from each apk the websiteList step will be passed in as full parameters
-- For demo purposes, we have a base.apk of duolingo ready for analysis
-
-### How to get the Duolingo base.apk:
-
-1. Go to https://www.apkmirror.com/apk/duolingo/duolingo-duolingo/duolingo-language-lessons-6-70-3-release/duolingo-language-lessons-6-70-3-android-apk-download/
-2. Click DOWNLOAD APK BUNDLE
-3. Rename .apkm to .zip and open
-4. Extract base.apk to the form_finder folder
-
-## Step 3: Run the script
-
+```console
+pip install requests
 ```
-python analyze_apk.py
-```
-
-The found XML form elements will be compile into a file called form_elements.csv in the same directory.

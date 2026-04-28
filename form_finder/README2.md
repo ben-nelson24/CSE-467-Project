@@ -25,7 +25,9 @@ Change the code to fit your needs.
 
 First Change the API_KEY to your Androzoo Api Key
 
-Remove the code snipped:
+### NOTE: If your API key is in your environment variables, you may skip this step entirely. If you don't know, then the default is to follow this step.
+
+Remove the code snippet:
 ```console
 os.environ.get("ANDROZOO API KEY HERE")
 ```
@@ -78,3 +80,18 @@ If you run into issues with requests package being missing, run:
 ```console
 pip install requests
 ```
+
+Some other issues may include incorrectly named files. 
+The default name for the latest apktool is:
+
+```console
+apktool_3.0.2.jar
+```
+
+while the program uses the name:
+
+```console
+apktool.jar
+```
+
+Making sure the filtered.csv is both in the form_finder folder, as well as the main project folder is also necessary.
