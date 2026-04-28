@@ -1,5 +1,5 @@
 # CSE 467 - Group 7 Privacy Policy Processing
-We make use of privacy_policy_pipelin.py to run our analysis
+We make use of privacy_policy_pipeline.py to run our analysis
 
 Pipeline:
   1. Takes package names from AndroZoo CSV or forms.json
