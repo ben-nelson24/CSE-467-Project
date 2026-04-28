@@ -80,3 +80,18 @@ If you run into issues with requests package being missing, run:
 ```console
 pip install requests
 ```
+
+Some other issues may include incorrectly named files. 
+The default name for the latest apktool is:
+
+```console
+apktool_3.0.2.jar
+```
+
+while the program uses the name:
+
+```console
+apktool.jar
+```
+
+Making sure the filtered.csv is both in the form_finder folder, as well as the main project folder is also necessary.
